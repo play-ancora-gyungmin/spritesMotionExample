@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>스프라이츠 애니메이션</title>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body,
+        ul,
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #8CC63E;
+        }
+        
+        .hid {
+            display: none;
+        }
+
+        /*
+        웹폰트
+        font-family: 'Gloria Hallelujah', cursive;
+        font-family: 'ZCOOL KuaiLe', cursive;
+        */
+        
+        .main-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            text-align: center;
+            color: aliceblue;
+            font-size: 56px;
+            font-family: 'Gloria Hallelujah', cursive;
+            z-index: 1;
+        }
+        
+        .gnb {
+            position: absolute;
+            top: 5%;
+            left: 80px;
+            z-index: 1;
+        }
+        
+        .gnb ul {
+            list-style: none;
+        }
+        
+        .gnb a {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 43px;
+            line-height: 130px;
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
+        
+        .gnb a:hover {
+            color: midnightblue;
+            text-decoration: line-through;
+        }
+        
+        .tv {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            margin: 0 auto;
+            background: url(./images/tvset.png) no-repeat;
+        }
+        
+        .tv-view {
+            position: absolute;
+            top: 213px;
+            left: 450px;
+            width: 453px;
+            height: 227px;
+            background-image: url(./images/street.jpg);
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            animation: an-tv-view 8s linear infinite;
+        }
+        
+        @keyframes an-tv-view {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -585% 0;
+            }
+        }
+        
+        .moving {
+            transition: .8s;
+        }
+        
+        .tv .moving:hover {
+            transform: scale(3);
+        }
+        
+        .moving-john {
+            margin: 8px auto;
+            width: 100px;
+            height: 176px;
+            background-image: url(./images/spAni03.png);
+            background-size: cover;
+            animation: an-moving-john 1s steps(8) infinite;
+        }
+        
+        @keyframes an-moving-john {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -807px 0;
+            }
+        }
+        
+        .moving-kid {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 72px;
+            background-image: url(./images/spAni01.png);
+            animation: an-moving-kid 1s steps(10) infinite;
+        }
+        
+        @keyframes an-moving-kid {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -500px 0;
+            }
+        }
+        
+        .moving-monster {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 118px;
+            height: 118px;
+            background-image: url(./images/spAni02.png);
+            animation: an-moving-monster-x 1s steps(6) infinite,
+                an-moving-monster-y 3s steps(3) infinite;
+        }
+        
+        @keyframes an-moving-monster-x {
+            from {
+                background-position-x: 0;
+            }
+            to {
+                background-position-x: -710px;
+            }
+        }
+        
+        @keyframes an-moving-monster-y {
+            from {
+                background-position-y: 0;
+            }
+            to {
+                background-position-y: -355px;
+            }
+        }
+        
+        .moving-woman {
+            position: absolute;
+            top: 10%;
+            right: 20px;
+            width: 256px;
+            height: 407px;
+            background-image: url(./images/girl_frames.png);
+            border: 20px ridge #a85f15;
+            animation: an-moving-woman-x 1s steps(5) infinite,
+                an-moving-woman-y 5s steps(3) infinite;
+            transform: scale(.5);
+        }
+        
+        @keyframes an-moving-woman-x {
+            from {
+                background-position-x: 0;
+            }
+            to {
+                background-position-x: -1280px;
+            }
+        }
+        
+        @keyframes an-moving-woman-y {
+            from {
+                background-position-y: 0;
+            }
+            to {
+                background-position-y: -1222px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--1.제목-->
+    <h1 class="main-title">John's Television</h1>
+
+    <!--2.메뉴-->
+    <nav class="gnb">
+        <ul>
+            <li>
+                <a href="#">Watching</a>
+            </li>
+            <li>
+                <a href="#">Eating</a>
+            </li>
+            <li>
+                <a href="#">Listening</a>
+            </li>
+            <li>
+                <a href="#">Sleeping</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--3.TV박스-->
+    <section class="tv">
+        <div class="tv-view">
+            <div class="moving moving-john">
+                <span class="hid">무빙존</span>
+            </div>
+            <div class="moving moving-kid">
+                <span class="hid">무빙키드</span>
+            </div>
+            <div class="moving moving-monster">
+                <span class="hid">무빙몬스터</span>
+            </div>
+        </div>
+    </section>
+    <section class="moving moving-woman">
+    </section>
+</body></html>
